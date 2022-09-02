@@ -3,7 +3,6 @@ import path from 'path'
 import timecut from 'timecut'
 import timesnap from 'timesnap'
 
-// const WEBAPP_URL = 'https://webapp.url' // url to web app to render
 const WEBAPP_URL = 'http://localhost:3000' // url to web app to render
 const OUTPUT_DIR = path.join(__dirname, '..', 'output')
 const TEMP_DIR = path.join(__dirname, '..', 'temp')
@@ -30,12 +29,9 @@ export async function renderVideo(
             ignoreHTTPSErrors: true,
             headless: true,
             devtools: false,
-            // preparePage,
             shouldSkipFrame,
-            stopFunctionName: 'stopCapture',
-            // frameCache: TEMP_DIR,
+            stopFunctionName: '_puppeteerStopCapture',
             pipeMode: true,
-            // startDelay: 3, // probly we want to use some delay to get app ready, but preparePage and stopFunctionName whould work much better
             quiet: false, // make it true to hide debug output
             start: 0,
             fps: 5,
